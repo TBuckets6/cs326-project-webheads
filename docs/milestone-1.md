@@ -16,10 +16,10 @@ Certain data to be included is questions to be asked as well as answers, and a s
 When the user arrives at the website, they will first be given the options to choose their topic, adjust the difficulty, and set an optional time limit. These may be implemented via a dropdown list. Once the settings have been chosen, the user will click a button to start the quiz. There will be input text boxes for short answer and radio buttons multiple choice. When finished with the quiz, the user will receive their total score as well as the correct answer to each question.
 
 Data:
-- Questions/Answers
-- Difficulty Settings
-- Scores
-- Topic Categories
-- Optional Time limit
-- User Feedback
+- Questions/Answers - String
+- Difficulty Settings - Number
+- Scores - Number
+- Topic Categories - String, Object
+- Optional Time limit - Boolean, Number, Time
+- User Feedback - String
 
