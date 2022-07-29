@@ -1,7 +1,7 @@
 # Team Overview
 Members: 
 - Taylor Bushey - TBuckets6
-- Zhenduo Wang - 
+- Zhenduo Wang - iiisso
 
 # Application Idea
 
