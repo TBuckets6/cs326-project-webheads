@@ -1,3 +1,11 @@
 .clickablePic{
     cursor: pointer;
 }
+
+#topics{
+    display: flex;
+}
+
+div{
+    padding: 50px; 
+}
