@@ -1,0 +1,1 @@
+const questionsAndAnswers = [1,2,3];

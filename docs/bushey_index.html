@@ -1,61 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>QuizMaster</title>
 
     <script type="module" src="bushey_index.js" defer></script>
-    <link rel="stylesheet" href="bushey_main.css"/>
+    <link rel="stylesheet" href="bushey_main.css" />
 </head>
+
 <body>
-    
+
     <center>
         <h1>QuizMaster</h1>
-        <h2 id="header">Choose a topic:</h2>
-        <div id="topics">      
-            <figure class="fig">
-                <img src="https://live.staticflickr.com/590/20447259789_9114edf13a_b.jpg" alt="programming" id="codingPic"
-                    class="clickablePic" width="350px" height="250px" />
-                <figcaption>Programming</figcaption>
-            </figure>
-        
-            <figure class="fig">
-                <img src="https://marvel-b1-cdn.bc0a.com/f00000000026007/resilienteducator.com/wp-content/uploads/2012/11/AdobeStock_60467600_cup.jpg"
-                    alt="math" id="mathPic" class="clickablePic" width="350px" height="250px" />
-                <figcaption>Math</figcaption>
-            </figure>
+        <div id="initDisplay"> <!-- This div represents the inital display of the page before starting the quiz. This will be hidden when the start button is clicked.-->
+            <h2 id="header">Choose a topic:</h2>
+            <div id="topics">
+                <figure class="fig">
+                    <img src="https://live.staticflickr.com/590/20447259789_9114edf13a_b.jpg" alt="programming"
+                        id="codingPic" class="clickablePic" width="350px" height="250px" />
+                    <figcaption>Programming</figcaption>
+                </figure>
 
-            <figure class="fig">
-                <img src="https://openclipart.org/download/338233/basketball-scene-3-colour.svg"
-                    alt="basketball" id="bballPic" class="clickablePic" width="350px" height="250px" />
-                <figcaption>Basketball</figcaption>
-            </figure>
-        </div>
-    
-        <h2 id="header">Adjust the settings if desired:</h2>
-        <div id="quizSettings">
-            
-            <label for="difficulty">Difficulty</label>
-            <select name="difficulty" id="difficulty" disabled>
-                <option value="normal">Normal</option>
-                <option value="hard">Hard</option>
-            </select>
+                <figure class="fig">
+                    <img src="https://marvel-b1-cdn.bc0a.com/f00000000026007/resilienteducator.com/wp-content/uploads/2012/11/AdobeStock_60467600_cup.jpg"
+                        alt="math" id="mathPic" class="clickablePic" width="350px" height="250px" />
+                    <figcaption>Math</figcaption>
+                </figure>
 
-            <label for="timeLimit">Time limit</label>
-            <select name="timeLimit" id="timeLimit" disabled>
-                <option value="none">None</option>
-                <option value="tenMin">10 min</option>
-            </select>
-            
+                <figure class="fig">
+                    <img src="https://openclipart.org/download/338233/basketball-scene-3-colour.svg" alt="basketball"
+                        id="bballPic" class="clickablePic" width="350px" height="250px" />
+                    <figcaption>Basketball</figcaption>
+                </figure>
+            </div>
+
+            <h2 id="header">Optional settings:</h2>
+            <div id="quizSettings">
+
+                <label for="difficulty">Difficulty</label>
+                <select name="difficulty" id="difficulty" disabled>
+                    <option value="normal">Normal</option>
+                    <option value="hard">Hard</option>
+                </select>
+
+                <label for="timeLimit">Time limit</label>
+                <select name="timeLimit" id="timeLimit" disabled>
+                    <option value="none">None</option>
+                    <option value="tenMin">10 min</option>
+                </select>
+
+            </div>
+
+            <h2>Start the quiz:</h2>
+            <div id="startGame">
+                <input type="button" value="Start!" id="start" disabled />
+            </div>
+
         </div>
-        
-        <h2>Start the quiz:</h2>
-        <div id="start">
-            <input type="button" value="Start!" id="start" disabled/>
-        </div>
-        
+
     </center>
-    
-    
+
+
 </body>
+
 </html>
