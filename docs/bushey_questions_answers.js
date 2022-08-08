@@ -2,10 +2,10 @@ const normalLevelCoding = [
     {
         question1: "Question 1: What are the correct data types for JavaScript?",
         answers1: [ 
-                   {a: "number, string, boolean, null, undefined, object", correct: true}, 
-                   {b: "int, string, boolean, float", correct: false }, 
-                   {c: "string, boolean, array", correct: false}, 
-                   {d: "int, double, string, boolean, object"}
+                   {0: "number, string, boolean, null, undefined, object", correct: true}, 
+                   {1: "int, string, boolean, float", correct: false }, 
+                   {2: "string, boolean, array", correct: false}, 
+                   {3: "int, double, string, boolean, object"}
                 ]
     },
         
