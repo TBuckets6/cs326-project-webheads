@@ -14,10 +14,10 @@ const normalLevelCoding = [
             + "function f(){ return 3; }\n\n" 
             + "f();",
         answers2: [
-                {a: "3", correct: false},
-                {b: "undefined", correct: false},
-                {c: "No output (the console is blank)", correct: true},
-                {d: "33", correct: false}
+                {0: "3", correct: false},
+                {1: "undefined", correct: false},
+                {2: "No output (the console is blank)", correct: true},
+                {3: "33", correct: false}
         ]
 
     },
@@ -25,10 +25,10 @@ const normalLevelCoding = [
     {
         question3: "Question 3: In HTML, which tag start and end tag must JavaScript go between?",
         answers3: [
-                {a: "<html> </html>", correct: false},
-                {b: "<script> </script>", correct: true},
-                {c: "<javascript> </javascript>", correct: false},
-                {d: "<body> </body>", correct: false}
+                {0: "<html> </html>", correct: false},
+                {1: "<script> </script>", correct: true},
+                {2: "<javascript> </javascript>", correct: false},
+                {3: "<body> </body>", correct: false}
         ]
 
     }

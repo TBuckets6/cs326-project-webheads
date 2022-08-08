@@ -31,41 +31,66 @@ function displayQuiz(quiz){
     quizDisplay.setAttribute('id', 'quizDisplay');
     //for(let i = 0; i < )
 
-    let q1 = document.createTextNode(quiz[0].question1);
+    
+    for(const obj in quiz){
+    let index0 = Number(obj) + 1;
+    let y = 'question' + index0
+    let q = document.createTextNode(quiz[obj][y]);
+    quizDisplay.appendChild(addPre())
+    quizDisplay.appendChild(q)
+   
+    for(let i = 0; i < 4; i++){
+        let index = Number(obj) + 1
+        let x = 'answers' + index;
+        let choice = document.createElement('input');
+        let choiceTxt = document.createElement('label');
+        choice.setAttribute('type', 'radio');
+        choice.setAttribute('id', 'choice' + String(i));
+        choice.setAttribute('name', 'choice')
+        //choiceTxt.textContent = quiz[0].answers1[0][property[0]];
+        choiceTxt.textContent = quiz[obj][x][i][i];
+        //console.log(choice)
+        choiceTxt.setAttribute('for', choice);
+        quizDisplay.appendChild(addPre());
+        quizDisplay.appendChild(choice)
+        quizDisplay.appendChild(choiceTxt)
+        
+    }
+    }
+    
+    document.body.appendChild(quizDisplay);
+    //return quiz;
+}
 
+/*
+function displayQuiz(quiz){
+    let quizDisplay = document.createElement('div');
+    quizDisplay.setAttribute('id', 'quizDisplay');
+    //for(let i = 0; i < )
+
+    let q1 = document.createTextNode(quiz[0].question1);
+    
     for(let i = 0; i < 4; i++){
         let choice = document.createElement('input');
         let choiceTxt = document.createElement('label');
         choice.setAttribute('type', 'radio');
-        choice.setAttribute('id', 'choice');
+        choice.setAttribute('id', 'choice' + String(i));
+        choice.setAttribute('name', 'choice')
         //choiceTxt.textContent = quiz[0].answers1[0][property[0]];
         choiceTxt.textContent = quiz[0].answers1[i][i];
-        console.log(quiz[0].answers1[0][i])
+        console.log(choice)
         choiceTxt.setAttribute('for', choice);
         quizDisplay.appendChild(addPre());
         quizDisplay.appendChild(choice)
         quizDisplay.appendChild(choiceTxt)
     }
-    /*
-    let choiceA = document.createElement('input');
-    let aText = document.createElement('label');
-    const pre = document.createElement('pre');
-    choiceA.setAttribute('type', 'radio')
-    choiceA.setAttribute('id', 'choiceA')
-    aText.textContent =  quiz[0].answers1[0].a
-
-    aText.setAttribute('for', 'choiceA')
-    quizDisplay.appendChild(q1)
-    quizDisplay.appendChild(pre)
-    quizDisplay.appendChild(choiceA);
-    quizDisplay.appendChild(aText)
-    //quizDisplay.innerText = normalLevelCoding[0].question1;
-
-    */
+    
+    
     document.body.appendChild(quizDisplay);
     //return quiz;
 }
 
+*/
 //saveState();
 /*
 
