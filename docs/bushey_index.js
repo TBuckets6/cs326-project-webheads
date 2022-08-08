@@ -1,3 +1,5 @@
+import { hardLevelCoding, normalLevelCoding } from "./bushey_questions_answers.js";
+
 const codingPic = document.getElementById('codingPic');
 const mathPic = document.getElementById('mathPic');
 const bballPic = document.getElementById('bballPic')
@@ -16,11 +18,36 @@ function restoreState(){
     let diff = window.localStorage.getItem('difficulty');  
 }
 
+function clearState(){
+    window.localStorage.clear();
+}
+
 //saveState();
 
-function displayQuiz(){
+function displayQuiz(quiz){
+    let quizDisplay = document.createElement('div');
+    quizDisplay.setAttribute('id', 'quizDisplay');
+    //for(let i = 0; i < )
+    let q1 = document.createTextNode(quiz[0].question1);
+    let choiceA = document.createElement('input');
+    let aText = document.createElement('label');
+    const pre = document.createElement('pre');
+    choiceA.setAttribute('type', 'radio')
+    choiceA.setAttribute('id', 'choiceA')
+    aText.textContent =  quiz[0].answers1[0].a
 
+    aText.setAttribute('for', 'choiceA')
+    quizDisplay.appendChild(q1)
+    quizDisplay.appendChild(pre)
+    quizDisplay.appendChild(choiceA);
+    quizDisplay.appendChild(aText)
+    //quizDisplay.innerText = normalLevelCoding[0].question1;
+
+
+    document.body.appendChild(quizDisplay);
+    //return quiz;
 }
+//displayQuiz(normalLevelCoding);
 
 //When called, this fucnction will allow each button to be clicked.
 function enableButtons(){
@@ -30,29 +57,43 @@ function enableButtons(){
 }
 
 
-
-
 codingPic.addEventListener("click", () => {
     enableButtons();
-    
-    
+    startBtn.classList.add("codingPic");
 });
+
 
 mathPic.addEventListener("click", () => {
     enableButtons();
-    
+    startBtn.classList.add("mathPic");
 });
 
 
 bballPic.addEventListener("click", () => {
     enableButtons();
-    
+    startBtn.classList.add("bballPic");
 });
 
 
 startBtn.addEventListener("click", () => {
-    initDisplay.style.display = "none";
-    
+    initDisplay.style.display = "none";//hide the 'start ment' display
+
+    if(startBtn.classList.contains("codingPic")){
+        if(difficulty.value === "normal"){
+            displayQuiz(normalLevelCoding);
+        }
+        else{
+            displayQuiz(hardLevelCoding);
+        }
+
+    }
+    else if(startBtn.classList.contains("mathPic")){
+
+    }
+    else if(startBtn.classList.contains("bballPic")){
+
+    }
+
     //displayQuiz();
     
 });
@@ -90,7 +131,4 @@ console.log(x)
     difficulty.appendChild(normal_diff);
     document.body.appendChild(difficulty);
     */
-
-
-
 
