@@ -8,7 +8,7 @@ const difficulty = document.getElementById('difficulty');
 const timeLimit = document.getElementById('timeLimit');
 const startBtn = document.getElementById('start');
 const initDisplay = document.getElementById('initDisplay');
-const finishBtn = document.createElement('input');
+const submitBtn = document.createElement('input');
 
 function saveState(){
     window.localStorage.setItem('difficulty', JSON.stringify(difficulty.value)); //saves the difficulty as a string ("normal" or "hard").
@@ -70,7 +70,7 @@ function displayQuiz(quiz){
         choice.setAttribute('type', 'radio');
          
         choice.setAttribute('id', 'choice' + String(obj) + String(i));
-        console.log('choice' + String(obj) + String(i))
+        //console.log('choice' + String(obj) + String(i))
         choice.setAttribute('name', 'choice' + String(obj))
         //choiceTxt.textContent = quiz[0].answers1[0][property[0]];
         choiceTxt.textContent = quiz[obj][x][i][i];
@@ -85,28 +85,30 @@ function displayQuiz(quiz){
     }
     quizDisplay.appendChild(addPre())
     //const finishBtn = document.createElement('input');
-    finishBtn.setAttribute('type', 'button');
-    finishBtn.setAttribute('value', 'Submit')
-    quizDisplay.appendChild(finishBtn)
+    submitBtn.setAttribute('type', 'button');
+    submitBtn.setAttribute('value', 'Submit')
+    quizDisplay.appendChild(submitBtn)
     document.body.appendChild(quizDisplay);
     //return quiz;
-    console.log(answers)
+    //console.log(answers)
     return answers;
 }
-
+//console.log(quizDisplay)
 //const ans = quizDisplay()
 
 
-finishBtn.addEventListener("click", () =>{
+submitBtn.addEventListener("click", () =>{
+    document.getElementById('quizDisplay').style.display = "none";
     calculateScore();
-
+    let resultsDisplay = document.createElement('div');
+    let feedback = document.createTextNode('You scored ' + String(calculateScore()) + ' out of 3 points')
+    resultsDisplay.appendChild(feedback);
+    document.body.appendChild(resultsDisplay);
 });
 
-function f(){
-    let x = calculateScore();
-}
 
-function calculateScore(){
+
+function calculateScore(){//this function will return the score
     let answers = []
     if(startBtn.classList.contains("codingPic")){
         if(difficulty.value === "normal"){
@@ -170,8 +172,7 @@ function calculateScore(){
         console.log('hi')
     }
     */
-   console.log('hi')
-   console.log(score)
+   
    return score;
 }
 
