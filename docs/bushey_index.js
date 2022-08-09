@@ -8,7 +8,7 @@ const difficulty = document.getElementById('difficulty');
 const timeLimit = document.getElementById('timeLimit');
 const startBtn = document.getElementById('start');
 const initDisplay = document.getElementById('initDisplay');
-
+const finishBtn = document.createElement('input');
 
 function saveState(){
     window.localStorage.setItem('difficulty', JSON.stringify(difficulty.value)); //saves the difficulty as a string ("normal" or "hard").
@@ -26,27 +26,52 @@ function addPre(){
     return document.createElement('pre');
 }
 
+/*
+function getAnswers(quiz){
+    let answers = []
+    for(let i = 0; i < 3; i++){
+        answers.push(quiz[i].correct)
+    }
+    return answers;
+}
+*/
+
+//const ans = getAnswers(quiz);
+
 function displayQuiz(quiz){
+    let answers = [];
     let quizDisplay = document.createElement('div');
+    let correctAnswer = 0;
     quizDisplay.setAttribute('id', 'quizDisplay');
     //for(let i = 0; i < )
 
     
     for(const obj in quiz){
+   
     let index0 = Number(obj) + 1;
     let y = 'question' + index0
     let q = document.createTextNode(quiz[obj][y]);
     quizDisplay.appendChild(addPre())
     quizDisplay.appendChild(q)
-   
+    answers.push(quiz[obj].correct)
+
     for(let i = 0; i < 4; i++){
+        /*
+        if(quiz[obj.correct === true]){
+            correctAnswer = obj;
+            answers.push(correctAnswer);
+        }
+        */
+        
         let index = Number(obj) + 1
         let x = 'answers' + index;
         let choice = document.createElement('input');
         let choiceTxt = document.createElement('label');
         choice.setAttribute('type', 'radio');
-        choice.setAttribute('id', 'choice' + String(i));
-        choice.setAttribute('name', 'choice')
+         
+        choice.setAttribute('id', 'choice' + String(obj) + String(i));
+        console.log('choice' + String(obj) + String(i))
+        choice.setAttribute('name', 'choice' + String(obj))
         //choiceTxt.textContent = quiz[0].answers1[0][property[0]];
         choiceTxt.textContent = quiz[obj][x][i][i];
         //console.log(choice)
@@ -56,10 +81,98 @@ function displayQuiz(quiz){
         quizDisplay.appendChild(choiceTxt)
         
     }
+
     }
-    
+    quizDisplay.appendChild(addPre())
+    //const finishBtn = document.createElement('input');
+    finishBtn.setAttribute('type', 'button');
+    finishBtn.setAttribute('value', 'Submit')
+    quizDisplay.appendChild(finishBtn)
     document.body.appendChild(quizDisplay);
     //return quiz;
+    console.log(answers)
+    return answers;
+}
+
+//const ans = quizDisplay()
+
+
+finishBtn.addEventListener("click", () =>{
+    calculateScore();
+
+});
+
+function f(){
+    let x = calculateScore();
+}
+
+function calculateScore(){
+    let answers = []
+    if(startBtn.classList.contains("codingPic")){
+        if(difficulty.value === "normal"){
+            answers = [0,2,1]
+
+
+        }
+        else{
+            displayQuiz(hardLevelCoding);
+        }
+
+    }
+    let checked = []
+    let zip = '';
+    let score = 0;
+    for(let i = 0; i < 3; i++){
+        for(let j = 0; j < 4; j++){
+            let index = Number(i) + 1
+            let x = 'answers' + index;
+            if(document.getElementById('choice' + String(i) + String(j)).checked === true && j === answers[i]/*&&  j === */)  {
+                score = score + 1;
+            }
+            
+            //if(document.getElementById('choice' + String(i) + String(j)).checked === true && q[i.correct] === /*q[i][x][j][j]*/){
+              //  console.log('hi')
+            //} 
+        }
+    }
+   
+    /*
+    for(let h = 0; h < 3; h++){
+        for(let i = 0; i < 4; i ++){
+            //console.log(typeof(choice01))
+            //let zip = JSON.parse('choice' + String(h) + String(i))
+            //console.log(JSON.parse(zip))
+            //if()
+            //console.log('hi')
+            //let zz ==  
+            //q[h][answers + h + 1][i][i + 1] //to get the 'correct' property?
+            //if(q[h]){
+
+            //}
+            let index000 = h+1
+            let zz = 'answers' + String(index000);
+            if(document.getElementById('choice' + String(h) + String(i)).checked === true && q[]){
+                console.log('hi')
+
+            } 
+        }
+        
+            
+    }
+    */
+    /*
+    for(let i = 0; i < 4; i++){
+        
+    }
+    */
+    /*
+    if(choice01.checked === true){
+        console.log('hi')
+    }
+    */
+   console.log('hi')
+   console.log(score)
+   return score;
 }
 
 /*
@@ -153,6 +266,8 @@ startBtn.addEventListener("click", () => {
     if(startBtn.classList.contains("codingPic")){
         if(difficulty.value === "normal"){
             displayQuiz(normalLevelCoding);
+
+
         }
         else{
             displayQuiz(hardLevelCoding);
@@ -169,6 +284,8 @@ startBtn.addEventListener("click", () => {
     //displayQuiz();
     
 });
+
+
 /*
 codingPic.addEventListener("click", () => {
     enableButtons();

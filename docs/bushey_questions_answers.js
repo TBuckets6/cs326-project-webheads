@@ -2,23 +2,25 @@ const normalLevelCoding = [
     {
         question1: "Question 1: What are the correct data types for JavaScript?",
         answers1: [ 
-                   {0: "number, string, boolean, null, undefined, object", correct: true}, 
-                   {1: "int, string, boolean, float", correct: false }, 
-                   {2: "string, boolean, array", correct: false}, 
-                   {3: "int, double, string, boolean, object"}
-                ]
+                   {0: "number, string, boolean, null, undefined, object", /*correct: true*/}, 
+                   {1: "int, string, boolean, float", /*correct: false*/ }, 
+                   {2: "string, boolean, array", /*correct: false*/}, 
+                   {3: "int, double, string, boolean, object"/*correct: false*/}
+                ],
+        correct: 0
     },
-        
+    
     {
         question2: "Question 2: (JavaScript) What is the output of this code?\n\n"
-            + "function f(){ return 3; }\n\n" 
+            + "function f(){ return 3; }"
             + "f();",
         answers2: [
                 {0: "3", correct: false},
                 {1: "undefined", correct: false},
                 {2: "No output (the console is blank)", correct: true},
                 {3: "33", correct: false}
-        ]
+        ],
+        correct: 2
 
     },
 
@@ -29,7 +31,8 @@ const normalLevelCoding = [
                 {1: "<script> </script>", correct: true},
                 {2: "<javascript> </javascript>", correct: false},
                 {3: "<body> </body>", correct: false}
-        ]
+        ],
+        correct: 1
 
     }
 
@@ -43,4 +46,6 @@ const hardLevelCoding = [
     }
 ]
 
+
+//console.log(typeof(normalLevelCoding[0].correct))
 export { normalLevelCoding, hardLevelCoding };
