@@ -5,4 +5,6 @@
 <img src="2022-08-088.png" alt="start menu">
 This is the starting menu of the website. The user will click on one of the pictures which represents each topic.
 
+
+
 <img src="2022-08-0881.png" alt="settings">
