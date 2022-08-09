@@ -2,4 +2,4 @@
 
 
 
-<img src="2022-08-08.png" alt="start menu" style="width:150px;height:150px">
+<img src="2022-08-08.png" alt="start menu" style="width:300px;height:300px">
