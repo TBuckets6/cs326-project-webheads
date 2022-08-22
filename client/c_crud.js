@@ -1,8 +1,6 @@
 //calls with fetch to the server will be made here
 
-/*
-
-async function saveTestScore(name, score){
+async function c_saveTestScore(name, score){
     const scoreObj = {name: name, score: score};
     let rootArr = [scoreObj];
 
@@ -16,7 +14,7 @@ async function saveTestScore(name, score){
     });
 }
 
-async function getTopScores(){
+async function c_getTopScores(){
     const response = await fetch(
         `/highestTestScores`, {
         method: 'GET',
@@ -24,4 +22,4 @@ async function getTopScores(){
     const data = await response.json();
 }
 
-*/
+export { c_saveTestScore, c_getTopScores }

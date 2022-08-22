@@ -2,15 +2,16 @@ import express from 'express';
 import logger from 'morgan';
 import { database } from './s_database.js';
 
+//const express = require('express');
 //create express app and set the port
 const app = express();
-const port = 3000 || process.env.PORT;
+const port = process.env.PORT || 3000;
 
 //setup middleware for app
-app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use('/client', express.static('client'));
+app.use(logger('dev'));
+app.use('/', express.static('client'));
 
 app.post('/testScore', async (request, response) => {
     const reqBod = request.query;
@@ -25,9 +26,11 @@ app.get('/highestTestScores', async (request, response) =>{
     response.json(topScores);
 });
 
+
 app.all('*', async (request, response) => {
-    response.status(404).send(`The requested page cannot be found on this server: ${request.path}`);
+    response.status(404).send(`Not found: ${request.path}`);
 });
+
 
 app.listen(port, () => {
     console.log(`Server started on http://localhost:${port}`);

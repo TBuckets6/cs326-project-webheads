@@ -1,5 +1,6 @@
 {
     "name": "cs326-project-webheads",
+    "main": "c_index.js",
     "type": "module",
     "engines": {
         "node": "16.15.1"

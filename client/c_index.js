@@ -1,3 +1,4 @@
+import { c_saveTestScore } from "./c_crud.js";
 import { hardLevelCoding, normalLevelCoding, normalLevelMath, hardLevelMath, normalLevelBball, hardLevelBball } from "./c_questions_answers.js";
 
 const codingPic = document.getElementById('codingPic');
@@ -9,6 +10,7 @@ const timeLimit = document.getElementById('timeLimit');
 const startBtn = document.getElementById('start');
 const initDisplay = document.getElementById('initDisplay');
 const submitBtn = document.createElement('input');
+const p_name = document.getElementById('p_name');
 //const quizDisplay = document.createElement('')
 /*
 if(window.localStorage){
@@ -133,6 +135,7 @@ function calculateScore() {//this function will return the score
             }
         }
     }
+    c_saveTestScore(p_name.value, score); //grab the name and score and store that data in the database
     return score;
 }
 
