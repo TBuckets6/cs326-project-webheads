@@ -1,4 +1,4 @@
-import { hardLevelCoding, normalLevelCoding, normalLevelMath, hardLevelMath, normalLevelBball, hardLevelBball } from "./bushey_questions_answers.js";
+import { hardLevelCoding, normalLevelCoding, normalLevelMath, hardLevelMath, normalLevelBball, hardLevelBball } from "./c_questions_answers.js";
 
 const codingPic = document.getElementById('codingPic');
 const mathPic = document.getElementById('mathPic');
