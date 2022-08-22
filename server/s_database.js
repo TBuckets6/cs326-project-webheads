@@ -41,7 +41,7 @@ class Database {
         }
     }
 
-    async deleteTopScores(){
+    async deleteTopScores(){//DELETE
         try{
             let rootArr = await readFile(this.path, 'utf-8');
             rootArr = JSON.parse(rootArr);

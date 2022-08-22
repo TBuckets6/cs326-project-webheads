@@ -142,11 +142,13 @@ async function calculateScore() {//this function will return the score
     return score;
 }
 
+//This function will display the scores on the initial UI display of the application
 async function displayTopScores(){
     let topScores = await c_getTopScores();
-    let html = '<h1>Top Test Scores</h1>';
-    html += '<table>';
-    topScores.forEach((score) => {
+    let html = '<h1>Top Test Scores</h1>'; //declare a variable to store html code
+    html += '<table>';//create a table element
+    topScores.forEach((score) => {//iterate through each of the score objects in the array
+        //crate rows with cells to display the name of the player and their score
         html += `
         <tr>
           <td>${score.name}</td>
@@ -154,9 +156,9 @@ async function displayTopScores(){
         </tr>
         `;
     });
-    html += '</table>';
+    html += '</table>';//create the end tag for the table
     
-    scoreDisplay.innerHTML = html;
+    scoreDisplay.innerHTML = html;//display the newly created html code to the scoreDisplay variable which represents a div element
     
 }
 
