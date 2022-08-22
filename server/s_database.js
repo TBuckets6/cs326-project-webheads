@@ -2,7 +2,7 @@ import { readFile, writeFile } from 'fs/promises';
 
 class Database {
     constructor(){
-        this.path = scores.json;
+        this.path = 'scores.json';
     }
 
     async saveTestScore(name, score){ //CREATE
@@ -25,9 +25,11 @@ class Database {
     async getTopScores(){//READ
         try{
             let rootArr = await readFile(this.path, 'utf-8');
+            
             rootArr = JSON.parse(rootArr);
-            rootArr.sort((a, b) => b.score - a.score);
-            rootArr.splice(0, 10);
+            //rootArr.sort((a, b) => b.score - a.score);
+            //rootArr.splice(0, 10);
+            //console.log(rootArr);
             return rootArr;
         }
         catch{

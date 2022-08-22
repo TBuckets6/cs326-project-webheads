@@ -1,5 +1,6 @@
 import express from 'express';
-import { database } from './s_database';
+import logger from 'morgan';
+import { database } from './s_database.js';
 
 //create express app and set the port
 const app = express();

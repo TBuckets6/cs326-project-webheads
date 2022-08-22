@@ -1,5 +1,11 @@
 {
     "name": "cs326-project-webheads",
-    "type": "module"
-
+    "type": "module",
+    "engines": {
+        "node": "16.15.1"
+    },
+    "dependencies": {
+        "express": "^4.18.1",
+        "morgan": "1.10.0"
+    }
 }
