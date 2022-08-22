@@ -27,9 +27,13 @@ class Database {
             let rootArr = await readFile(this.path, 'utf-8');
             
             rootArr = JSON.parse(rootArr);
-            //rootArr.sort((a, b) => b.score - a.score);
-            //rootArr.splice(0, 10);
-            //console.log(rootArr);
+            
+			rootArr.sort((first, second) => second.score - first.score);
+
+            if(rootArr.length > 10){
+                rootArr.spilce(10);
+            }
+			
             return rootArr;
         }
         catch{
