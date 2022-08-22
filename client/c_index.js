@@ -94,24 +94,6 @@ async function displayQuiz(quiz) {
     return answers;
 }
 
-submitBtn.addEventListener("click", async () => {
-    document.getElementById('quizDisplay').style.display = "none";
-    let resultsDisplay = document.createElement('div');
-    let feedback = document.createTextNode('You scored ' + String(await calculateScore()) + ' out of 3 points')
-    resultsDisplay.appendChild(feedback);
-    document.body.appendChild(resultsDisplay);
-});
-
-
-clearScores.addEventListener("click", async () => {
-    await c_deleteTopScores();
-    scoreDisplay.innerHTML = '';
-    await displayTopScores();
-})
-
-
-
-
 async function calculateScore() {//this function will return the score
     let answers = []
     if (startBtn.classList.contains("codingPic")) {
@@ -237,3 +219,18 @@ startBtn.addEventListener("click", () => {
 
 }); 
 
+
+submitBtn.addEventListener("click", async () => {
+    document.getElementById('quizDisplay').style.display = "none";
+    let resultsDisplay = document.createElement('div');
+    let feedback = document.createTextNode('You scored ' + String(await calculateScore()) + ' out of 3 points')
+    resultsDisplay.appendChild(feedback);
+    document.body.appendChild(resultsDisplay);
+});
+
+
+clearScores.addEventListener("click", async () => {
+    await c_deleteTopScores();
+    scoreDisplay.innerHTML = '';
+    await displayTopScores();
+})
