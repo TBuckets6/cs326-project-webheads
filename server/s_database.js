@@ -23,7 +23,16 @@ class Database {
     }
 
     async getTopScores(){//READ
-
+        try{
+            let rootArr = await readFile(this.path, 'utf-8');
+            rootArr = JSON.parse(rootArr);
+            rootArr.sort((a, b) => b.score - a.score);
+            rootArr.splice(0, 10);
+            return rootArr;
+        }
+        catch{
+            console.log('error reading file');
+        }
     }
 
 
