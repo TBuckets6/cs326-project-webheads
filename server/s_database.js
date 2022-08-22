@@ -1,12 +1,12 @@
 import { readFile, writeFile } from 'fs/promises';
-import 'dotenv/config';
+import 'dotenv/config'
 import pg from 'pg';
 
 const { Pool } = pg;
 
 class Database {
     constructor(){
-        this.path = 'testScores.json';
+        this.path = 'scores.json';
     }
 
     async saveTestScore(name, score){ //CREATE

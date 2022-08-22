@@ -4,7 +4,6 @@ import { hardLevelCoding, normalLevelCoding, normalLevelMath, hardLevelMath, nor
 const codingPic = document.getElementById('codingPic');
 const mathPic = document.getElementById('mathPic');
 const bballPic = document.getElementById('bballPic')
-const topics = document.getElementById('topics');
 const difficulty = document.getElementById('difficulty');
 const timeLimit = document.getElementById('timeLimit');
 const startBtn = document.getElementById('start');
@@ -135,21 +134,28 @@ async function calculateScore() {//this function will return the score
 
 //This function will display the scores on the initial UI display of the application
 async function displayTopScores(){
-    let topScores = await c_getTopScores();
-    let html = '<h1>Top Test Scores</h1>'; //declare a variable to store html code
-    html += '<table>';//create a table element
-    topScores.forEach((score) => {//iterate through each of the score objects in the array
-        //crate rows with cells to display the name of the player and their score
-        html += `
+
+    try{
+        let topScores = await c_getTopScores();
+        let html = '<h1>Top Test Scores</h1>'; //declare a variable to store html code
+        html += '<table>';//create a table element
+        topScores.forEach((score) => {//iterate through each of the score objects in the array
+            //crate rows with cells to display the name of the player and their score
+            html += `
         <tr>
           <td>${score.name}</td>
           <td>${score.score}</td>
         </tr>
         `;
-    });
-    html += '</table>';//create the end tag for the table
+        });
+        html += '</table>';//create the end tag for the table
+
+        scoreDisplay.innerHTML = html;//display the newly created html code to the scoreDisplay variable which represents a div element
+    }
+    catch{
+        console.log('File has not yet been created');
+    }
     
-    scoreDisplay.innerHTML = html;//display the newly created html code to the scoreDisplay variable which represents a div element
     
 }
 
