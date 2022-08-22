@@ -82,15 +82,6 @@ async function displayQuiz(quiz) {
     quizDisplay.appendChild(submitBtn)
     document.body.appendChild(quizDisplay);
 
-    //let topScores = await c_getTopScores();
-    //console.log(topScores);
-    //console.log('hi')
-    //console.log(topScores)
-    /*
-    let html = '<h1>Top Scores</h1>';
-    html += '<table>';
-    */
-
     return answers;
 }
 
