@@ -1,4 +1,4 @@
-import { c_saveTestScore } from "./c_crud.js";
+import { c_deleteTopScores, c_getTopScores, c_saveTestScore } from "./c_crud.js";
 import { hardLevelCoding, normalLevelCoding, normalLevelMath, hardLevelMath, normalLevelBball, hardLevelBball } from "./c_questions_answers.js";
 
 const codingPic = document.getElementById('codingPic');
@@ -11,12 +11,16 @@ const startBtn = document.getElementById('start');
 const initDisplay = document.getElementById('initDisplay');
 const submitBtn = document.createElement('input');
 const p_name = document.getElementById('p_name');
+const scoreDisplay = document.getElementById('scoreDisplay');
+const clearScores = document.getElementById('clear');
 //const quizDisplay = document.createElement('')
 /*
 if(window.localStorage){
     restoreState();
 }
 */
+
+await displayTopScores();
 
 function saveState() {
     window.localStorage.setItem('difficulty', JSON.stringify(difficulty.value)); //saves the difficulty as a string ("normal" or "hard").
@@ -38,7 +42,7 @@ function addPre() {
     return document.createElement('pre');
 }
 
-function displayQuiz(quiz) {
+async function displayQuiz(quiz) {
     let answers = [];
     let quizDisplay = document.createElement('div');
     let correctAnswer = 0;
@@ -77,21 +81,38 @@ function displayQuiz(quiz) {
     submitBtn.setAttribute('value', 'Submit')
     quizDisplay.appendChild(submitBtn)
     document.body.appendChild(quizDisplay);
+
+    //let topScores = await c_getTopScores();
+    //console.log(topScores);
+    //console.log('hi')
+    //console.log(topScores)
+    /*
+    let html = '<h1>Top Scores</h1>';
+    html += '<table>';
+    */
+
     return answers;
 }
 
-submitBtn.addEventListener("click", () => {
+submitBtn.addEventListener("click", async () => {
     document.getElementById('quizDisplay').style.display = "none";
-    calculateScore();
     let resultsDisplay = document.createElement('div');
-    let feedback = document.createTextNode('You scored ' + String(calculateScore()) + ' out of 3 points')
+    let feedback = document.createTextNode('You scored ' + String(await calculateScore()) + ' out of 3 points')
     resultsDisplay.appendChild(feedback);
     document.body.appendChild(resultsDisplay);
 });
 
 
+clearScores.addEventListener("click", async () => {
+    await c_deleteTopScores();
+    scoreDisplay.innerHTML = '';
+    await displayTopScores();
+})
 
-function calculateScore() {//this function will return the score
+
+
+
+async function calculateScore() {//this function will return the score
     let answers = []
     if (startBtn.classList.contains("codingPic")) {
         if (difficulty.value === "normal") {
@@ -135,11 +156,27 @@ function calculateScore() {//this function will return the score
             }
         }
     }
-    c_saveTestScore(p_name.value, score); //grab the name and score and store that data in the database
+    await c_saveTestScore(p_name.value, score); //grab the name and score and store that data in the database  //////////////////////
     return score;
 }
 
-
+async function displayTopScores(){
+    let topScores = await c_getTopScores();
+    let html = '<h1>Top Test Scores</h1>';
+    html += '<table>';
+    topScores.forEach((score) => {
+        html += `
+        <tr>
+          <td>${score.name}</td>
+          <td>${score.score}</td>
+        </tr>
+        `;
+    });
+    html += '</table>';
+    
+    scoreDisplay.innerHTML = html;
+    
+}
 
 //When called, this fucnction will allow each button to be clicked.
 function enableButtons() {
@@ -198,4 +235,5 @@ startBtn.addEventListener("click", () => {
         }
     }
 
-});
+}); 
+

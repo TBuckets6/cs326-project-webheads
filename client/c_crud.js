@@ -1,4 +1,4 @@
-//calls with fetch to the server will be made here
+//frontend CRUD operations are stored in this file
 
 async function c_saveTestScore(name, score){
     const scoreObj = {name: name, score: score};
@@ -20,6 +20,18 @@ async function c_getTopScores(){
         method: 'GET',
     });
     const data = await response.json();
+    return data;
 }
 
-export { c_saveTestScore, c_getTopScores }
+async function c_deleteTopScores(){
+    const response = await fetch(
+        `/highestTestScores`, {
+            method: 'DELETE',
+            headers: {
+                'Content-type': 'application/json',
+            },
+    });
+
+}
+
+export { c_saveTestScore, c_getTopScores, c_deleteTopScores };

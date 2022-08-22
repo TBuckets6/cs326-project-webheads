@@ -35,7 +35,7 @@
                 </figure>
             </div>
             <label for="p_name">Enter your name</label>
-            <input type="text" id="p_name" name="p_name">
+            <input type="text" id="p_name" name="p_name" value="User">
             <br><br>
             <h2 id="header">Optional settings:</h2>
             <div id="quizSettings">
@@ -53,11 +53,13 @@
 
             </div>
 
-            <h2>Start the quiz:</h2>
+            
             <div id="startGame">
+            <h2>Start the quiz:</h2>    
                 <input type="button" value="Start!" id="start" disabled />
             </div>
-
+            <div id="scoreDisplay"></div>
+            <input type="button" value="Clear Top Scores" id="clear"/>
         </div>
 
     </center>

@@ -37,6 +37,21 @@ class Database {
         }
     }
 
+    async deleteTopScores(){
+        try{
+            let rootArr = await readFile(this.path, 'utf-8');
+            rootArr = JSON.parse(rootArr);
+            rootArr = [];
+            //rootArr.sort((a, b) => b.score - a.score);
+            //rootArr.splice(0, 10);
+            //console.log(rootArr);
+            await writeFile(this.path, JSON.stringify(rootArr));
+        }
+        catch{
+            console.log('error reading file');
+        }
+    }
+
 
 }
 
