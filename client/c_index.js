@@ -12,14 +12,8 @@ const submitBtn = document.createElement('input');
 const p_name = document.getElementById('p_name');
 const scoreDisplay = document.getElementById('scoreDisplay');
 const clearScores = document.getElementById('clear');
-//const quizDisplay = document.createElement('')
-/*
-if(window.localStorage){
-    restoreState();
-}
-*/
 
-await displayTopScores();
+await displayTopScores(); //Display the top scores on the "start menu" if they exist
 
 function saveState() {
     window.localStorage.setItem('difficulty', JSON.stringify(difficulty.value)); //saves the difficulty as a string ("normal" or "hard").
@@ -30,7 +24,6 @@ function restoreState() {
     let diff = window.localStorage.getItem('difficulty');
     initDisplay.style.display = "none";
     document.body.appendChild(window.localStorage.getItem('quizDisplay'));
-
 }
 
 function clearState() {
@@ -84,24 +77,19 @@ async function displayQuiz(quiz) {
     return answers;
 }
 
-async function calculateScore() {//this function will return the score
+async function calculateScore() {//this function will calculate and return the score
     let answers = []
     if (startBtn.classList.contains("codingPic")) {
         if (difficulty.value === "normal") {
             answers = [0, 2, 1]
-
-
         }
         else {
             answers = [2, 1, 1]
         }
-
     }
     else if(startBtn.classList.contains("mathPic")){
         if (difficulty.value === "normal") {
             answers = [1, 2, 3]
-
-
         }
         else {
             answers = [3, 2, 2]
@@ -110,14 +98,11 @@ async function calculateScore() {//this function will return the score
     else{
         if (difficulty.value === "normal") {
             answers = [0, 2, 0]
-
-
         }
         else {
             answers = [2, 2, 2]
         }
     }
-
 
     let score = 0;
     for (let i = 0; i < 3; i++) {
@@ -155,17 +140,16 @@ async function displayTopScores(){
     catch{
         console.log('File has not yet been created');
     }
-    
-    
 }
 
-//When called, this fucnction will allow each button to be clicked.
+//When called, this fucnction will enable each button to be clicked.
 function enableButtons() {
     difficulty.removeAttribute("disabled");
     timeLimit.removeAttribute("disabled");
     startBtn.removeAttribute("disabled");
 }
 
+//////////////////////// Click-event listeners below /////////////////// 
 
 codingPic.addEventListener("click", () => {
     enableButtons();

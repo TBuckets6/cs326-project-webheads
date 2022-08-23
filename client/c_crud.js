@@ -1,4 +1,4 @@
-//frontend CRUD operations are stored in this file
+//Front-end CRUD operations are stored in this file
 
 async function c_saveTestScore(name, score){
     const scoreObj = {name: name, score: score};
@@ -31,7 +31,6 @@ async function c_deleteTopScores(){
                 'Content-type': 'application/json',
             },
     });
-
 }
 
 export { c_saveTestScore, c_getTopScores, c_deleteTopScores };

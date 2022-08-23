@@ -1,3 +1,5 @@
+// This file holds the questions and answers for each quiz the user can take.
+
 const normalLevelCoding = [
     {
         question1: "Question 1: What are the correct data types for JavaScript?",
@@ -219,5 +221,4 @@ const hardLevelBball = [
     
 ]
 
-//console.log(typeof(normalLevelCoding[0].correct))
 export { normalLevelCoding, hardLevelCoding, normalLevelMath, hardLevelMath, normalLevelBball, hardLevelBball };
